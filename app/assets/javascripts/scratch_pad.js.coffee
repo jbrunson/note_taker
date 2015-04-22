@@ -4,10 +4,9 @@ window.ScratchPad =
   Views: {}
   Routers: {}
   initialize: ->
-    @AllNotes = new @Collections.Notes
-    @AllNotes.fetch().done =>  #load data before creating views and routing
-      new @Routers.ScratchPadRouter
-      Backbone.history.start(pushState: true)
+    @AllNotes = new @Collections.Notes(@notesJson) #passed from rails views/notes/index
+    new @Routers.ScratchPadRouter
+    Backbone.history.start(pushState: true)
 
 window.App = window.ScratchPad
 
