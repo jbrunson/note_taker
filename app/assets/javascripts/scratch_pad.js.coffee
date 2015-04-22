@@ -5,9 +5,9 @@ window.ScratchPad =
   Routers: {}
   initialize: ->
     @AllNotes = [
-      { id: 1, title: "the first note", content: "I am a note" }
-      { id: 2, title: "the second note", content: "" }
-      { id: 3, title: "the third note", content: "more notes" }
+      new @Models.Note(id: 1, title: "the first note", content: "I am a note")
+      new @Models.Note(id: 2, title: "the second note", content: "")
+      new @Models.Note(id: 3, title: "the third note", content: "more notes")
     ]
     new @Routers.ScratchPadRouter
     Backbone.history.start(pushState: true)

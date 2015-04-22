@@ -1,6 +1,6 @@
 class App.Routers.ScratchPadRouter extends Backbone.Router
   routes:
-    '': 'index'
+    '':          'index'
     'notes/:id': 'showNote'
 
   index: ->
