@@ -1,5 +1,5 @@
 class NotesController < ApplicationController
-  helper_method :notes, :note
+  helper_method :notes, :note     #Make available in views
   
   def notes
     @_notes ||= Note.all
