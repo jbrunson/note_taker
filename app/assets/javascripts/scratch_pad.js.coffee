@@ -4,13 +4,10 @@ window.ScratchPad =
   Views: {}
   Routers: {}
   initialize: ->
-    @AllNotes = [
-      new @Models.Note(id: 1, title: "the first note", content: "I am a note")
-      new @Models.Note(id: 2, title: "the second note", content: "")
-      new @Models.Note(id: 3, title: "the third note", content: "more notes")
-    ]
-    new @Routers.ScratchPadRouter
-    Backbone.history.start(pushState: true)
+    @AllNotes = new @Collections.Notes
+    @AllNotes.fetch().done =>  #load data before creating views and routing
+      new @Routers.ScratchPadRouter
+      Backbone.history.start(pushState: true)
 
 window.App = window.ScratchPad
 
