@@ -4,7 +4,7 @@ window.ScratchPad =
   Views: {}
   Routers: {}
   initialize: ->
-    @AllNotes = new @Collections.Notes(@notesJson) #passed from rails views/notes/index
+    @AllNotes = new @Collections.Notes(@notesJson, parse: true) #passed from rails views/notes/index
     view = new @Views.Notes(collection: @AllNotes)
     $('#container').html(view.render().el)
 

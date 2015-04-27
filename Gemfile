@@ -9,7 +9,7 @@ gem 'momentjs-rails'
 gem 'backbone-on-rails', '~> 1.1.0.0'
 gem 'lodash-rails', '~> 2.2.1'
 gem 'jquery-rails'
-gem 'jbuilder', '~> 2.0'
+gem 'active_model_serializers', '~> 0.8.0'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 
 gem 'spring',        group: :development

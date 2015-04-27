@@ -1,5 +1,5 @@
 class NotesController < ApplicationController
-  helper_method :notes, :note     #Make available in views
+  helper_method :notes, :note   
   respond_to :json, only: [:index, :create, :update, :destroy]
   respond_to :html, only: [:index]
 
@@ -8,12 +8,13 @@ class NotesController < ApplicationController
   end
 
   def create
-    note = Note.create(note_params)
+    note = Note.new
+    save_note(note)
     respond_with note
   end
 
   def update
-    note.update_attributes(note_params)
+    save_note(note)
     respond_with(note) do |format|
       format.json { render json: note }
     end
@@ -24,9 +25,10 @@ class NotesController < ApplicationController
   end
 
   private
-  
-  def note_params
-    params.permit(:title, :content)
+
+  def save_note note
+    note_form = NoteForm.new(note, params)
+    note_form.save
   end
 
   def notes
