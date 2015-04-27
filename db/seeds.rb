@@ -1,5 +1,18 @@
 Note.destroy_all
 
-Note.create(title: "the first note", body: StickyNote.new(content: "I am a note"))
-Note.create(title: "the second note", body: StickyNote.new(content: ""))
-Note.create(title: "the third note", body: StickyNote.new(content: "more notes"))
+Note.create([
+  {
+    title: "A simple note",
+    body: StickyNote.new(content: "Dont forget to make a todo list")
+  },
+  {
+    title: "A more complex todo list",
+    body: TodoList.new(
+      todo_items: [
+        TodoItem.new(title: "Make a second todo item", complete: true),
+        TodoItem.new(title: "make another todo list", complete: false),
+        TodoItem.new(title: "another one!!!!!!", complete: false)
+      ]
+    )
+  }
+])
